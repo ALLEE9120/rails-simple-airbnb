@@ -1,0 +1,18 @@
+<div class="index">
+  <% @flats.each do |flat| %>
+    <div class="single-flat">
+      <div>
+        <h4><%= flat.name %></h4>
+        <%= flat.address %>
+      </div>
+
+      <div class="moreinfo">
+        <%= link_to "More Info",flat_path(flat) %>
+        <%= link_to "Edit", edit_flat_path(flat), class: "ms-3 text-warning"  %>
+        <%= link_to flat_path(flat.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{flat.name}?"} do %>
+        <i class="fas fa-trash-alt"></i>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
